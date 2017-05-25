@@ -49,8 +49,11 @@ void Rinex3x::parseEphRecord(eph_t& eph,const vector<string> &str) const
 {
     // the 1th line of ephemeris record.
     string temp = str.at(0);
-    eph.sat                = std::stoi( temp.substr(0,2));  
-    eph.toc.fromString(temp.substr(3,19),17);
+    eph.sat                = std::stoi( temp.substr(0,2));
+
+    GTime gtime;
+    gtime.fromString(QString::fromStdString(temp.substr(3,19)),17);
+    eph.toc = gtime.getSecond();
 
 //    tm tocCalendar;
 //    int tempToc            = std::stoi( temp.substr(3,2));
@@ -94,9 +97,12 @@ void Rinex3x::parseEphRecord(eph_t& eph,const vector<string> &str) const
 
     // the 4th line
     temp = str.at(3);
-    double tempDouble     = extractDouble(temp,3,19);
-    eph.toe.time          = floor(tempDouble);
-    eph.toe.sec           =  tempDouble - eph.toe.time;
+    gtime.fromString(QString::fromStdString(temp.substr(3,19)),17);
+    eph.toe = gtime.getSecond();
+
+//    double tempDouble     = extractDouble(temp,3,19);
+//    eph.toe.time          = floor(tempDouble);
+//    eph.toe.sec           =  tempDouble - eph.toe.time;
     eph.Cic               = extractDouble(temp,22,19);
     eph.OMG0              = extractDouble(temp,41,19);
     eph.Cis               = extractDouble(temp,60,19);

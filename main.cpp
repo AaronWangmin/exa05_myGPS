@@ -47,6 +47,14 @@ int main(int argc, char *argv[])
     cout  << "constructor: GTime(str,int), second =  "<< gtime0.getSecond() << endl;
     cout  << "getGtime(week,second), gps second =  "<< gtime0.gtime2second(1902,233472) << endl;
 
+    cout <<"test: SatPos, a class" << endl;
+    SatPos satPos;
+    pointXYZ_t point3;
+    satPos.getSatPos(point3);
+    cout << "X: " << point3.X << ","
+         << "Y: " << point3.Y << ","
+         << "Z: " << point3.Z << endl;
+
     cout <<"test: pointXYZ_t, a struct" << endl;
     pointXYZ_t point;
     cout << "default constructor: point() " << "X: " << point.X << ","
@@ -57,13 +65,10 @@ int main(int argc, char *argv[])
                                             << "Y: " << point1.Y << ","
                                             << "Z: " << point1.Z << endl;
 
-     cout <<"test: SatPos, a class" << endl;
-     SatPos satPos;
-     pointXYZ_t point3;
-     satPos.getSatPos(point3);
-     cout << "X: " << point3.X << ","
-          << "Y: " << point3.Y << ","
-          << "Z: " << point3.Z << endl;
+    cout <<"test: eph_t, a struct" << endl;
+    eph_t eph;
+    cout << eph.A << "  " << eph.af0 << endl;
+
 
 
     return a.exec();
