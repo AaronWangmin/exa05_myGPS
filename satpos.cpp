@@ -6,10 +6,10 @@ SatPos::SatPos():posSat({0,0,0})
 
 }
 
-void SatPos::eph2Pos(GTime &time, eph_t &eph)
+void SatPos::eph2Pos(double time, eph_t &eph)
 {   
     // 计算卫星发射信息时刻与参考时刻的差 tk
-    double tk = time.getSecond() - eph.toe.getSecond();
+    double tk = time - eph.toe;
 
     // 计算卫星平近点角 Mk
     double A = pow((eph.A),2);                       //	卫星轨道长半轴

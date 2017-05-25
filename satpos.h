@@ -8,7 +8,7 @@ class SatPos
 {
 public:
     SatPos();
-    void eph2Pos(GTime& time,eph_t& eph);
+    void eph2Pos(double time,eph_t& eph);
     void getSatPos(pointXYZ_t& posSat) const;
 private:
     pointXYZ_t posSat;

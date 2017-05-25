@@ -52,8 +52,9 @@ void Rinex3x::parseEphRecord(eph_t& eph,const vector<string> &str) const
     eph.sat                = std::stoi( temp.substr(0,2));
 
     GTime gtime;
+    
     gtime.fromString(QString::fromStdString(temp.substr(3,19)),17);
-    eph.toc = gtime.getSecond();
+    eph.toc               = gtime.getSecond();
 
     eph.af0               = extractDouble(temp,22,19);
     eph.af1               = extractDouble(temp,41,19);

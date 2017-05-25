@@ -62,8 +62,7 @@ struct eph_t{                   // GPS broadcast ephemeris type
     double af0,af1,af2;
     double iode,Crs,Deln,M0;    // broadcast orbit-1
     double Cuc,e,Cus,A;         // broadcast orbit-2
-    double toe;                 // broadcast orbit-3
-    double Cic,OMG0,Cis;
+    double toe,Cic,OMG0,Cis;    // broadcast orbit-3   
     double i0,Crc,omg,OMGd;     // broadcast orbit-4
     double iDOT,code,toes,flag; // broadcast orbit-5
     double sva,svh,tgd,iodc;    // broadcast orbit-6

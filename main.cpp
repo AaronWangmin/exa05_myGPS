@@ -20,9 +20,10 @@ int main(int argc, char *argv[])
     rinex.readRinex3("D:/exam_cs106/code_aaron_cs106/exa05_myGPS/brdc1730.16n");
     vector<eph_t> ephData;
     rinex.getEphData(ephData);
-//    cout << ephData.back().toe.time << endl;
-//    cout << ephData.back().toc.time << endl;
-//    cout << ctime(&(ephData.back().toc.time)) << endl;
+    cout.precision(20);
+    cout << ephData.back().toe << endl;
+    cout << ephData.back().toc << endl;
+//    cout << ctime(&(ephData.back().toc)) << endl;
 
     cout <<"test: time" << endl;
     string test = "1980 1 6 00 00 00";
